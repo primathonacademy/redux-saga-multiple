@@ -5,6 +5,8 @@ import jokeReducer from '../jokes/store/reducer';
 const rootReducer = combineReducers({
   math: mathReducer,
   joke: jokeReducer,
+  // third: thirdAction,
+  // ....
 });
 
 export default rootReducer;

@@ -6,9 +6,13 @@ import { fetchJokeApi } from '../../api';
 // worker saga: will be fired on fetch math fact actions
 // Generator function ..................................
 function* fetchJoke(action) {
+  console.log('fetchJoke Worker Saga: ', action);
   try {
     const res = yield call(fetchJokeApi);
-    yield put({ type: JokeAction.FETCH_SUCCESS, payload: { joke: res.joke } });
+    yield put({
+      type: JokeAction.FETCH_SUCCESS,
+      payload: { joke: res.joke, math: action.payload.math },
+    });
   } catch (e) {
     yield put({
       type: JokeAction.FETCH_FAILED,

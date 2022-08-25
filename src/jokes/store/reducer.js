@@ -7,6 +7,7 @@ const defaultState = {
 };
 
 const jokeReducer = (state = defaultState, action) => {
+  console.log('jokeReducer ', { state, payload: action.payload });
   switch (action.type) {
     case JokeAction.FETCH_SUCCESS:
       return { ...state, joke: action.payload.joke, error: false, message: '' };

@@ -12,12 +12,14 @@ const Joke = () => {
   const joke = useSelector((state) => state.joke.joke);
   const dispatch = useDispatch();
 
+  const math = useSelector((state) => state.math);
+
   const onGetAnotherFact = () => {
-    dispatch({ type: JokeAction.FETCH_REQUEST });
+    dispatch({ type: JokeAction.FETCH_REQUEST, payload: { math } });
   };
 
   useEffect(() => {
-    dispatch({ type: JokeAction.FETCH_REQUEST });
+    dispatch({ type: JokeAction.FETCH_REQUEST, payload: { math } });
   }, []);
 
   return (

@@ -9,6 +9,7 @@ const Menu = () => {
   return (
     <div>
       <h1>Home</h1>
+      <br />
       <nav>
         <Link to='/math'>Math</Link>
         &nbsp; &nbsp; &nbsp;
