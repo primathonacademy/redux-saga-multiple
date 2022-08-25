@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+
+import MathFact from './maths/MathFact';
+import Joke from './jokes/Joke';
+
 import './App.css';
+
+const Menu = () => {
+  return (
+    <div>
+      <h1>Home</h1>
+      <nav>
+        <Link to='/math'>Math</Link>
+        &nbsp; &nbsp; &nbsp;
+        <Link to='/joke'>Joke</Link>
+      </nav>
+    </div>
+  );
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Menu />} />
+        <Route path='math' element={<MathFact />} />
+        <Route path='joke' element={<Joke />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
